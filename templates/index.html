@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>词义消歧</title>
+    <link href="sheng.png" rel="shortcut icon">
+</head>
+<body>
+    <div class="header">
+    </div>
+    <form action="http://localhost:5000/index" method="post">
+      <div class="search">
+           <input  type="text" placeholder="请输入词语" name="词语" id="word" value="" />
+           <input  type="text" placeholder="请输入句子" name="句子" id="sentence" value="" />
+          <button  type="submit" value="提交" onclick="appear()">搜索</button>
+      </div>
+    </form>
+<!--    <div style="font-size: 40px; font-family: Helvetica; ">这个词有以下意思</div>-->
+    <div class="meanings" >
+        {% for item in meanings %}
+        <ul>
+            <li style="list-style-type: none;">{{item}}</li>
+        </ul>
+        {% endfor %}
+    </div>
+    <p>
+    {{meaning}}
+    </p>
+    <div style="height: 20px; position:absolute; bottom:3%;left:0;right:0;margin:0 auto">
+        <div style="text-align:center" >
+         Copyright &copy; 2021.LHY All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .header{
+        height: 50px;
+        /* background-color: pink; */
+        margin-top: 20px;
+       }
+    .search{
+        height: 35px;
+        /* background-color: red; */
+        text-align: center;
+        /* position: absolute;  */
+       }
+    .search>#word{
+    width: 100px;
+    height: 35px;
+    box-sizing: border-box;
+    position: relative;
+   }
+    .search>#sentence{
+    width: 550px;
+    height: 35px;
+    box-sizing: border-box;
+    position: relative;
+   }
+    .search>button{
+    width: 100px;
+    height: 35px;
+    box-sizing: border-box;
+    color: white;
+    background-color: #da1c5c;
+    border: none;
+    position: fixed;
+   }
+    .meanings {
+        height: auto;
+        margin: 40px auto;
+        text-align: center;
+        border: 1px solid;
+        width: 40%;
+        justify-content: center;
+        border-radius: 5px;
+    }
+    p {
+        text-align: center;
+        font-size: 30px;
+        color: #da1c5c;
+    }
+</style>
+
+<script>
+
+</script>
